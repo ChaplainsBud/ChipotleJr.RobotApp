@@ -24,8 +24,6 @@ public class Main {
           String[] ingredients = {"rice", "meat", "beans", "salsa", "veggies","cheese","guac", "queso", "sour cream"};
           //String[] ingredients2 = {"ris", "carn", "frijoles", "sauce", "veg", "che", "que", "sour"};
 
-
-
           // Ingredient list based on random number list
           ArrayList<String> ingredientList1 = new ArrayList<String>();
           for (int i = 0; i < randomNumbers.size(); i++){
@@ -36,7 +34,6 @@ public class Main {
 //          for (int i = 0; i < randomNumbers.size(); i++){
 //              ingredientList2.add(ingredients2[i]);
 //          }
-
 
           // Works. Next step: loop into the chosen ingredients
           // don't use: String ingrid = ingredients[rm.nextInt(9)]; // [0,1,2,3,4,5,6,7,8]
@@ -58,28 +55,30 @@ public class Main {
           Boolean[] sourCream = {true, false};
           //Boolean sour = sourCream[rm.nextInt(2)];
 
-        //Goal: Loop through each of these based on the ingredientsList1
-        //Question: How do I access an array based on a name taken
+        //Goal: Loop through each of these based on the ingredientsList1 list of names
         // from another array?  {"rice"}... arr[0]... {"brown"}
+        // the list of names ... will not let me access the arrays they represent
         System.out.println(ingredientList1.get(0));
-        String name = ingredientList1.get(0);
-        System.out.println(name);
-       // System.out.println(ingredientList2);
+        System.out.println(ingredientList1.get(0));
 
            for (int i = 0; i < ingredientList1.size(); i++) {
                 //SIMPLE: just get first of each array, then add randomness
+// I have an array of array names
+// Why can't I use an array name from that array, and use it to access another array?
 
                // i. how about random number bound based on array size?
                // ii. then use the random number to take from array?
                // System.out.println(ingredientList1.get(i));
-               // System.out.println(ingredientList2.get(i)[0]);
-
 
            }
      }
 }
-// variable interpolation does not work ${};
-//
+
+
+
+
+
+// variable interpolation does not work #{}, ${};
 
 
 
@@ -87,37 +86,15 @@ public class Main {
 // Control logic: if(all...
 // Control logic: if(none...
 
-
-
-
-// choose random num 5-9
-// num loops main array, ingredients
-// next loop goes through each chosen ingredient
-// data can be .put() into a new array or ArrayList?
-// continued: these arrays will be inside an array of burritos
-// loop this new array of arrays, 24 burritos with each particular
-// get ingredients, price total
-
-
 // Essential:
 // Polya Step 1: Build ONE random burrito, ONE ingredient, no for loop
 // Polya Step 2: Build One random burrito, randomly 5-9 total ingredients
 // Polya Step 3: Calculate ONE burrito price
 // Polya Step 4: Loop 25 randomly generated burritos, calculate prices
+
 // Bonus:
 // Add all ingredients, display
 // Add all prices, display
 // Print receipt
 // Optimal receipt
 
-/*
-        Rice: white, brown, none, all
-        Meat: chicken, steak, carnidas, chorizo, sofritas, veggies, none, all
-        Beans: pinto, black, none, all
-        Salsa: mild, medium, hot, none, all
-        Veggies: lettuce, fajita veggies, none, all
-        Cheese: yes/no
-        Guac: yes/no
-        Queso: yes/no
-        Sour cream: yes/no
-*/
