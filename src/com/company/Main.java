@@ -9,71 +9,83 @@ public class Main {
 	// write your code here
         Random rm = new Random();
 
+        // Get a random number of ingredients
         int minMax = 0;  // range 5-9
           while(minMax < 5) {
               minMax = rm.nextInt(10);
           }
-          System.out.println(minMax); // I have the number, 5-9
 
-          // I may need to generate more random numbers, because putting them in variables
-         // is losing the randomness
+        // Random number of random numbers, into an ArrayList
           ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
-          // this creates an array of randomly generated numbers -> next, loop it on ingredients array
           for (int i = 1; i < minMax; i++){
               randomNumbers.add(rm.nextInt(9));
           }
-          System.out.println(randomNumbers);
 
-        String[] ingredients = {"rice", "meat", "beans", "salsa", "veggies","cheese","guac", "queso", "sour cream"};
+          String[] ingredients = {"rice", "meat", "beans", "salsa", "veggies","cheese","guac", "queso", "sour cream"};
+          //String[] ingredients2 = {"ris", "carn", "frijoles", "sauce", "veg", "che", "que", "sour"};
 
-        // simpler solution: just read out the randomNumbers applied to ingredients
-        System.out.println(randomNumbers.get(0));
 
-        System.out.println(ingredients[randomNumbers.get(0)]);
 
-        // the goal: use each element number to get ingredients, create a new ArrayList
+          // Ingredient list based on random number list
           ArrayList<String> ingredientList1 = new ArrayList<String>();
           for (int i = 0; i < randomNumbers.size(); i++){
-              // confusing: i. created array of random numbers needs to be
-              // ii. applied to ingredients
-              // iii. create new array based on those selected
-              // array: arr[element]; arraylist: arr.get(element)
               ingredientList1.add(ingredients[i]);
           }
-          // I want to create an array based on random num array elements
+
+//          ArrayList<String> ingredientList2 = new ArrayList<String>();
+//          for (int i = 0; i < randomNumbers.size(); i++){
+//              ingredientList2.add(ingredients2[i]);
+//          }
+
 
           // Works. Next step: loop into the chosen ingredients
-          System.out.println(ingredientList1);
-
-
           // don't use: String ingrid = ingredients[rm.nextInt(9)]; // [0,1,2,3,4,5,6,7,8]
 
           String[] rice = {"white", "brown", "none", "all"};
-          String ris = rice[rm.nextInt(4)]; // 4 = [0,1,2,3]
+          //String ris = rice[rm.nextInt(4)]; // 4 = [0,1,2,3]
           String[] meat = {"chicken", "steak", "carnidas", "chorizo", "veggies", "none", "all"};
-          String carn = meat[rm.nextInt(8)]; // 8 = 0 - 7
+          //String carn = meat[rm.nextInt(7)]; //[0,1,2,3,4,5,6]
           String[] beans = {"pinto", "black", "none", "all"};
-          String frijoles = beans[rm.nextInt(4)]; // 5 = 0 - 4
+          //String frijoles = beans[rm.nextInt(4)]; // 5 = 0 - 4
           String[] salsa = {"mild", "medium", "hot", "none", "all"};
-          String sauce = salsa[rm.nextInt(5)];  // 6 = 0 - 5;
+          //String sauce = salsa[rm.nextInt(5)];  // 6 = 0 - 5;
           String[] veggies = {"lettuce", "fajita veggies", "none", "all"};
-          String veg = veggies[rm.nextInt(4)];
+          //String veg = veggies[rm.nextInt(4)];
           Boolean[] cheese = {true, false};
-          Boolean che = cheese[rm.nextInt(2)];
+          //Boolean che = cheese[rm.nextInt(2)];
           Boolean[] queso = {true, false};
-          Boolean que = queso[rm.nextInt(2)];
+          //Boolean que = queso[rm.nextInt(2)];
           Boolean[] sourCream = {true, false};
-          Boolean sour = sourCream[rm.nextInt(2)];
+          //Boolean sour = sourCream[rm.nextInt(2)];
 
-          //Goal: Loop through each of these based on the ingredientsList1
+        //Goal: Loop through each of these based on the ingredientsList1
+        //Question: How do I access an array based on a name taken
+        // from another array?  {"rice"}... arr[0]... {"brown"}
+        System.out.println(ingredientList1.get(0));
+        String name = ingredientList1.get(0);
+        System.out.println(name);
+       // System.out.println(ingredientList2);
+
+           for (int i = 0; i < ingredientList1.size(); i++) {
+                //SIMPLE: just get first of each array, then add randomness
+
+               // i. how about random number bound based on array size?
+               // ii. then use the random number to take from array?
+               // System.out.println(ingredientList1.get(i));
+               // System.out.println(ingredientList2.get(i)[0]);
 
 
-// random number ranged 5-9 to select which ingredients to random select
-// random number is bound, 0 to bound -1. For example, 5 = 0 - 4.
-
+           }
      }
 }
+// variable interpolation does not work ${};
+//
 
+
+
+// These are going to throw off the total ingredients:
+// Control logic: if(all...
+// Control logic: if(none...
 
 
 
