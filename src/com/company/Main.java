@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
@@ -14,15 +15,37 @@ public class Main {
           }
           System.out.println(minMax); // I have the number, 5-9
 
-          String[] ingredients = {"rice", "meat", "beans", "salsa", "veggies","cheese","guac", "queso", "sour cream"};
+          // I may need to generate more random numbers, because putting them in variables
+         // is losing the randomness
+          ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
+          // this creates an array of randomly generated numbers -> next, loop it on ingredients array
+          for (int i = 1; i < minMax; i++){
+              randomNumbers.add(rm.nextInt(9));
+          }
+          System.out.println(randomNumbers);
+
+        String[] ingredients = {"rice", "meat", "beans", "salsa", "veggies","cheese","guac", "queso", "sour cream"};
+
+        // simpler solution: just read out the randomNumbers applied to ingredients
+        System.out.println(randomNumbers.get(0));
+
+        // the goal: use each element number to get ingredients, create a new ArrayList
+          ArrayList<String> ingredientList1 = new ArrayList<String>();
+          for (int i = 0; i < randomNumbers.size(); i++){
+              // confusing: i. created array of random numbers needs to be
+              // ii. applied to ingredients
+              // iii. create new array based on those selected
+              int selection = 0;
+              selection = randomNumbers.get(i);
+              ingredientList1.add(ingredientList1.get(selection));
+          }
+          // I want to create an array based on random num array elements
+          System.out.println(ingredientList1);
+
+
+
+
           String ingrid = ingredients[rm.nextInt(9)]; // [0,1,2,3,4,5,6,7,8]
-
-        //Use number to loop ingredients list... Error: getting same ingredient vs. num of random choices
-        for(int i = 1; i < minMax; i++){
-            System.out.println(ingrid);
-        }
-
-
 
           String[] rice = {"white", "brown", "none", "all"};
           String ris = rice[rm.nextInt(4)]; // 4 = [0,1,2,3]
@@ -33,7 +56,7 @@ public class Main {
           String[] salsa = {"mild", "medium", "hot", "none", "all"};
           String sauce = salsa[rm.nextInt(5)];  // 6 = 0 - 5;
           String[] veggies = {"lettuce", "fajita veggies", "none", "all"};
-          String veg = veggies[rm.nextInt(5)];
+          String veg = veggies[rm.nextInt(4)];
           Boolean[] cheese = {true, false};
           Boolean che = cheese[rm.nextInt(2)];
           Boolean[] queso = {true, false};
