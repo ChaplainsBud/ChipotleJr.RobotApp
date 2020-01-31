@@ -29,23 +29,24 @@ public class Main {
         // simpler solution: just read out the randomNumbers applied to ingredients
         System.out.println(randomNumbers.get(0));
 
+        System.out.println(ingredients[randomNumbers.get(0)]);
+
         // the goal: use each element number to get ingredients, create a new ArrayList
           ArrayList<String> ingredientList1 = new ArrayList<String>();
           for (int i = 0; i < randomNumbers.size(); i++){
               // confusing: i. created array of random numbers needs to be
               // ii. applied to ingredients
               // iii. create new array based on those selected
-              int selection = 0;
-              selection = randomNumbers.get(i);
-              ingredientList1.add(ingredientList1.get(selection));
+              // array: arr[element]; arraylist: arr.get(element)
+              ingredientList1.add(ingredients[i]);
           }
           // I want to create an array based on random num array elements
+
+          // Works. Next step: loop into the chosen ingredients
           System.out.println(ingredientList1);
 
 
-
-
-          String ingrid = ingredients[rm.nextInt(9)]; // [0,1,2,3,4,5,6,7,8]
+          // don't use: String ingrid = ingredients[rm.nextInt(9)]; // [0,1,2,3,4,5,6,7,8]
 
           String[] rice = {"white", "brown", "none", "all"};
           String ris = rice[rm.nextInt(4)]; // 4 = [0,1,2,3]
@@ -63,6 +64,8 @@ public class Main {
           Boolean que = queso[rm.nextInt(2)];
           Boolean[] sourCream = {true, false};
           Boolean sour = sourCream[rm.nextInt(2)];
+
+          //Goal: Loop through each of these based on the ingredientsList1
 
 
 // random number ranged 5-9 to select which ingredients to random select
